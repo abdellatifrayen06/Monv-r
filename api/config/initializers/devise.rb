@@ -28,13 +28,16 @@ Devise.setup do |config|
       scope: "email,profile",
       prompt: "select_account"
 
-    # In dev the browser sits on the React origin (:3000) and proxies /users to
-    # Rails (:3001) with changeOrigin. Without pinning the host, OmniAuth would
-    # build the callback against 127.0.0.1:3001, so Google would redirect there
-    # and Rails would set the session cookie on the wrong domain (login wouldn't
-    # stick on :3000). Pin the callback to the frontend origin instead.
-    if Rails.env.development?
-      OmniAuth.config.full_host = ENV.fetch("FRONTEND_URL", "http://localhost:3000")
-    end
+    # Pin the OAuth callback host so the redirect_uri Google receives is exact.
+    #  - Dev: the browser sits on the React origin (:3000) and proxies /users to
+    #    Rails (:3001) with changeOrigin; without pinning, OmniAuth would build
+    #    the callback against 127.0.0.1:3001 and the session cookie would land on
+    #    the wrong domain.
+    #  - Prod: behind nginx, the proxied request host/scheme would otherwise be
+    #    the internal container (e.g. http://web:3000), so Google would reject the
+    #    callback with redirect_uri_mismatch. Pinning to FRONTEND_URL fixes both.
+    frontend_host = ENV["FRONTEND_URL"].presence || ENV["SITE_URL"].presence ||
+                    (Rails.env.development? ? "http://localhost:3000" : nil)
+    OmniAuth.config.full_host = frontend_host if frontend_host
   end
 end
