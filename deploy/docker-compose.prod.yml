@@ -1,0 +1,51 @@
+services:
+  web:
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+    ports:
+      - "7675:3000"   # must be reachable from daizo-nginx via 172.17.0.1:7675 (not 127.0.0.1)
+    environment:
+      - PORT=3000
+      - GO_SERVICE_URL=http://go-service:3010
+      - RAILS_MAX_THREADS=20
+    env_file: .env.production
+    volumes:
+      - ../api/storage:/rails/storage
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:3000/up"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 120s
+
+  go-service:
+    build:
+      context: ../go-service
+      dockerfile: Dockerfile
+    ports:
+      - "3010:3010"   # must be reachable from daizo-nginx via 172.17.0.1:3010
+    env_file: .env.production
+    environment:
+      - PORT=3010
+      - GO_ENV=production
+      - RAILS_URL=http://web:3000
+      - DB_PATH=/app/data/go-service.db
+      - ALLOWED_ORIGINS=https://kideliowear.com
+      - SITE_URL=https://kideliowear.com
+    volumes:
+      - go_service_data:/app/data
+    restart: unless-stopped
+    depends_on:
+      web:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3010/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  go_service_data:

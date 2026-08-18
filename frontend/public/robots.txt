@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /panier
+Disallow: /checkout
+Disallow: /compte
+Disallow: /commande/
+Disallow: /connexion
+Disallow: /inscription
+
+Sitemap: https://kideliowear.com/sitemap.xml

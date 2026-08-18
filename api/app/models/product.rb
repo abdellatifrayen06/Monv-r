@@ -1,0 +1,87 @@
+class Product < ApplicationRecord
+  include Auditable
+  audit_as "Product"
+
+  belongs_to :category, optional: true
+  has_many :order_items, dependent: :nullify
+  has_many :reviews, class_name: "ProductReview", dependent: :destroy
+  has_many :colors, -> { ordered }, class_name: "ProductColor", dependent: :destroy
+  has_many_attached :images
+  # Same deterministic photo ordering as ProductColor (see comment there).
+  has_many :images_attachments,
+    -> { where(name: "images").order(:id) },
+    as: :record, class_name: "ActiveStorage::Attachment",
+    inverse_of: :record, dependent: :destroy
+  has_many :images_blobs, through: :images_attachments,
+    class_name: "ActiveStorage::Blob", source: :blob
+
+  # Structured spec list shown on the product page, e.g.
+  # [{ "label" => "Matière", "value" => "100% Polyester" }, ...]
+  attribute :details, :json, default: []
+
+  validates :name, :slug, :price, presence: true
+  validates :slug, uniqueness: true
+  validates :reference, uniqueness: true, allow_nil: true
+  validates :stock, numericality: { greater_than_or_equal_to: 0 }
+  validates :price, numericality: { greater_than: 0 }
+  validate :category_must_be_leaf, if: -> { category_id.present? }
+
+  before_validation :normalize_optional_strings
+  before_validation :normalize_details
+
+  scope :active, -> { where(active: true) }
+  scope :featured, -> { where(featured: true, active: true) }
+  scope :on_promo, -> { where(on_promo: true, active: true) }
+
+  def effective_price
+    on_promo && promo_price.present? ? promo_price : price
+  end
+
+  def in_stock?
+    return true if stock.positive?
+
+    colors.includes(:sizes).any? { |c| c.sizes.any? { |s| s.stock.positive? } }
+  end
+
+  # Catalog cover: product images, else the first color (by position) gallery.
+  def rating_stats
+    avg, count = reviews.pick(Arel.sql("AVG(stars)"), Arel.sql("COUNT(*)"))
+    { average: avg&.to_f&.round(1) || 0, count: count.to_i }
+  end
+
+  def listing_image_attachments
+    return images.to_a if images.attached?
+
+    primary_color = colors.min_by { |c| [c.position || 0, c.id] }
+    return [] unless primary_color&.images&.attached?
+
+    primary_color.images.to_a
+  end
+
+  private
+
+  # SQLite UNIQUE allows many NULLs but only one "" — blank optional fields must be NULL.
+  def normalize_optional_strings
+    self.reference = reference.presence
+    self.age_group = age_group.presence
+    self.description = description.presence
+  end
+
+  # Keep only well-formed, non-empty { label, value } rows.
+  def normalize_details
+    self.details = Array(details).filter_map do |row|
+      row = row.respond_to?(:to_h) ? row.to_h : {}
+      label = row["label"].to_s.strip
+      value = row["value"].to_s.strip
+      next if label.blank? && value.blank?
+
+      { "label" => label, "value" => value }
+    end
+  end
+
+  def category_must_be_leaf
+    return unless category&.children&.exists?
+
+    errors.add(:category_id, "doit être une sous-catégorie (pas une catégorie principale avec des sous-catégories)")
+  end
+end

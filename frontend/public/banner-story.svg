@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1200" viewBox="0 0 1000 1200" role="img" aria-label="MONVÉR">
+  <defs>
+    <linearGradient id="ghy0azz" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#2A2320"/>
+      <stop offset="1" stop-color="#191411"/>
+    </linearGradient>
+    <radialGradient id="vhy0azz" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0.6" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.28"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="1200" fill="url(#ghy0azz)"/>
+  <rect width="1000" height="1200" fill="url(#vhy0azz)"/>
+  <g transform="translate(266 330) scale(4.68)"
+     fill="none" stroke="#E7D8C4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+    
+    <path d="M34 66 V38 l16 20 16 -20 v28"/>
+  </g>
+  
+  <text x="500" y="1080" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="52" letter-spacing="21.84" fill="#E7D8C4" font-weight="500">MONVÉR</text>
+  <text x="500" y="1178.8" text-anchor="middle" font-family="Georgia, serif"
+        font-size="21.84" letter-spacing="17.68" fill="#E7D8C4" opacity="0.75">MONVÉR</text>
+</svg>

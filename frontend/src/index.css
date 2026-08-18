@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-anchor: none;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+
+  .skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .skip-link:focus {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    background: #fff;
+    color: #111827;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    font-weight: 600;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  body {
+    @apply font-sans bg-warm text-gray-900 antialiased;
+    overscroll-behavior: none;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+}
+
+@layer components {
+  /* ── Buttons ── espresso primary, uppercase editorial tracking, crisp radius */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink hover:bg-brand-800 text-white font-semibold uppercase tracking-[0.12em] text-sm rounded-md px-6 py-3 transition-all duration-200 active:scale-[0.98] cursor-pointer border-0 whitespace-nowrap select-none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-ink text-ink hover:bg-ink hover:text-white font-semibold uppercase tracking-[0.12em] text-sm rounded-md px-6 py-3 transition-all duration-200 active:scale-[0.98] cursor-pointer whitespace-nowrap select-none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 hover:border-ink hover:text-ink font-medium rounded-md px-5 py-2.5 transition-all duration-200 cursor-pointer select-none;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-xs;
+  }
+
+  .btn-lg {
+    @apply px-7 py-3.5 text-sm md:px-9 md:py-4 md:text-base;
+  }
+
+  /* ── Inputs ── */
+  .input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-brand-400 focus:border-brand-400 transition-all text-gray-900 placeholder-gray-400;
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+
+  .input-label {
+    @apply block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1.5;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-lg border border-gray-100 shadow-sm overflow-hidden;
+  }
+
+  /* ── Product card ── minimal, editorial, hairline border */
+  .product-card {
+    @apply bg-white rounded-lg overflow-hidden border border-transparent hover:border-gray-200 transition-all duration-300 cursor-pointer block;
+  }
+
+  .product-img-wrap {
+    @apply relative overflow-hidden bg-[#EFEAE1];
+    aspect-ratio: 3 / 4;
+  }
+
+  .product-img-wrap img {
+    @apply w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700;
+  }
+
+  /* ── Chat widget slide-up animation ── */
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(12px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)   scale(1);    }
+  }
+  .animate-slide-up { animation: slide-up 0.2s ease-out forwards; }
+
+  /* ── Section ── */
+  .section {
+    @apply py-8 md:py-14 lg:py-16;
+  }
+
+  .section-title {
+    @apply font-display text-2xl xs:text-3xl md:text-4xl font-normal text-ink mb-2;
+  }
+
+  .section-sub {
+    @apply text-gray-500 mb-6 md:mb-8 text-sm md:text-base;
+  }
+
+  /* ── Editorial eyebrow label ── */
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-600;
+  }
+
+  /* ── Page container ── */
+  .page-wrap {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ── Badge / chip ── */
+  .chip {
+    @apply flex-shrink-0 px-4 py-1.5 rounded-md text-sm font-medium border border-gray-300 bg-white cursor-pointer transition-all duration-150 hover:border-ink hover:text-ink whitespace-nowrap select-none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .chip-active {
+    @apply bg-ink text-white border-ink hover:border-ink hover:text-white;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 bg-brand-100 text-brand-800 rounded text-[11px] font-semibold uppercase tracking-wider;
+  }
+
+  /* ── Alerts ── */
+  .alert-error {
+    @apply flex items-center gap-2 text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3 text-sm font-medium;
+  }
+
+  .alert-success {
+    @apply flex items-center gap-2 text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-xl px-4 py-3 text-sm font-medium;
+  }
+
+  /* ── Skeleton loader ── */
+  .skeleton {
+    @apply animate-pulse bg-gray-100 rounded-lg;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Prevent rubber-band scroll on fixed panels */
+  .overscroll-contain {
+    overscroll-behavior: contain;
+  }
+
+  /* Full-height safe (iOS notch aware) */
+  .h-safe {
+    height: 100dvh;
+  }
+}

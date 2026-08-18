@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="SACS">
+  <defs>
+    <linearGradient id="gfltb14" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#E2CBAF"/>
+      <stop offset="1" stop-color="#C9A87E"/>
+    </linearGradient>
+    <radialGradient id="vfltb14" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0.6" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.07"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#gfltb14)"/>
+  <rect width="800" height="1000" fill="url(#vfltb14)"/>
+  <g transform="translate(192 262) scale(4.16)"
+     fill="none" stroke="#3A2E24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+    
+    <path d="M24 46 h52 l-4 32 h-44 z"/>
+    <path d="M36 46 a14 12 0 0 1 28 0"/>
+    <path d="M24 58 H76"/>
+  </g>
+  
+  <text x="400" y="900" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="41.6" letter-spacing="17.472" fill="#3A2E24" font-weight="500">MONVÉR</text>
+  <text x="400" y="979.04" text-anchor="middle" font-family="Georgia, serif"
+        font-size="17.472" letter-spacing="14.144000000000002" fill="#3A2E24" opacity="0.75">SACS</text>
+</svg>

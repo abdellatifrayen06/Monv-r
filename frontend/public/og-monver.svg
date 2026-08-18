@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="og" x1="0" y1="0" x2="0.6" y2="1">
+    <stop offset="0" stop-color="#2A2320"/><stop offset="1" stop-color="#151110"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#og)"/>
+  <g fill="none" stroke="#C9A87E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"
+     transform="translate(830 210) scale(3.6)">
+    <path d="M24 46 h52 l-4 32 h-44 z"/>
+    <path d="M36 46 a14 12 0 0 1 28 0"/>
+    <path d="M24 58 H76"/></g>
+  <text x="120" y="300" font-family="Georgia, serif" font-size="76" letter-spacing="22" fill="#E7D8C4">MONVÉR</text>
+  <text x="126" y="360" font-family="Georgia, serif" font-size="26" letter-spacing="9" fill="#B49B7C">MAROQUINERIE &amp; ACCESSOIRES EN CUIR</text>
+  <line x1="128" y1="400" x2="430" y2="400" stroke="#6E5A44" stroke-width="2"/>
+</svg>

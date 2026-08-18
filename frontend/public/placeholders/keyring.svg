@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800" role="img" aria-label="PORTE-CLÉS">
+  <defs>
+    <linearGradient id="g7u15mz" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#EFE7D8"/>
+      <stop offset="1" stop-color="#E0D2BC"/>
+    </linearGradient>
+    <radialGradient id="v7u15mz" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0.6" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.07"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#g7u15mz)"/>
+  <rect width="600" height="800" fill="url(#v7u15mz)"/>
+  <g transform="translate(144 220) scale(3.12)"
+     fill="none" stroke="#3A2E24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+    
+    <circle cx="44" cy="46" r="14"/>
+    <path d="M54 56 L74 76"/>
+    <path d="M68 70 l6 -6"/>
+  </g>
+  
+  <text x="300" y="720" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="31.2" letter-spacing="13.104" fill="#3A2E24" font-weight="500">MONVÉR</text>
+  <text x="300" y="779.28" text-anchor="middle" font-family="Georgia, serif"
+        font-size="13.104" letter-spacing="10.608" fill="#3A2E24" opacity="0.75">PORTE-CLÉS</text>
+</svg>
