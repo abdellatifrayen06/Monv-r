@@ -164,7 +164,7 @@ export function Layout() {
                 <Facebook size={16} />
               </a>
               <a
-                href="https://www.instagram.com/kideliowear/"
+                href="https://www.instagram.com/monver/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="MONVÉR sur Instagram"

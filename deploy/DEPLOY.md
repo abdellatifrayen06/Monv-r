@@ -27,12 +27,12 @@ to `127.0.0.1` only — use `7675:3000` and `3010:3010` so they listen on all in
    Fill in `RAILS_MASTER_KEY`, `SECRET_KEY_BASE`, Meta/Google credentials, `VITE_META_PIXEL_ID`.
 4. Obtain SSL certificate:
    ```bash
-   sudo certbot --nginx -d kideliowear.com -d www.kideliowear.com
+   sudo certbot --nginx -d monver.com -d www.monver.com
    ```
 5. Install nginx config:
    ```bash
-   sudo cp deploy/nginx-kideliowear.conf /etc/nginx/sites-available/kideliowear
-   sudo ln -sf /etc/nginx/sites-available/kideliowear /etc/nginx/sites-enabled/
+   sudo cp deploy/nginx-monver.conf /etc/nginx/sites-available/monver
+   sudo ln -sf /etc/nginx/sites-available/monver /etc/nginx/sites-enabled/
    sudo nginx -t && sudo systemctl reload nginx
    ```
 
@@ -83,7 +83,7 @@ curl http://127.0.0.1:3010/health   # Go
 ## Updating nginx after config changes
 
 ```bash
-sudo cp deploy/nginx-kideliowear.conf /etc/nginx/sites-available/kideliowear
+sudo cp deploy/nginx-monver.conf /etc/nginx/sites-available/monver
 sudo nginx -t && sudo systemctl reload nginx
 ```
 

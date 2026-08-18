@@ -32,8 +32,8 @@ services:
       - GO_ENV=production
       - RAILS_URL=http://web:3000
       - DB_PATH=/app/data/go-service.db
-      - ALLOWED_ORIGINS=https://kideliowear.com
-      - SITE_URL=https://kideliowear.com
+      - ALLOWED_ORIGINS=https://monver.com
+      - SITE_URL=https://monver.com
     volumes:
       - go_service_data:/app/data
     restart: unless-stopped

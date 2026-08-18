@@ -8,4 +8,4 @@ Disallow: /commande/
 Disallow: /connexion
 Disallow: /inscription
 
-Sitemap: https://kideliowear.com/sitemap.xml
+Sitemap: https://monver.com/sitemap.xml

@@ -1,5 +1,5 @@
 class SitemapController < ApplicationController
-  BASE_URL = "https://kideliowear.com"
+  BASE_URL = "https://monver.com"
 
   STATIC_ROUTES = [
     { loc: "/",         changefreq: "daily",   priority: "1.0" },

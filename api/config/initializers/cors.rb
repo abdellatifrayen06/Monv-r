@@ -5,8 +5,8 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       "http://127.0.0.1:3000",
       "http://localhost:3001",
       "http://127.0.0.1:3001",
-      "https://kideliowear.com",
-      "https://www.kideliowear.com"
+      "https://monver.com",
+      "https://www.monver.com"
     )
 
     resource "*",

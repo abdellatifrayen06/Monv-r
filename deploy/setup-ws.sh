@@ -45,12 +45,12 @@ configure_docker_nginx() {
   docker cp "$DEPLOY_DIR/daizo-nginx-ws.conf" "$container:/etc/nginx/kidelio-ws-locations.conf"
 
   local conf_file=""
-  conf_file="$(docker exec "$container" sh -c "grep -rl 'kideliowear.com' /etc/nginx 2>/dev/null | head -1" || true)"
+  conf_file="$(docker exec "$container" sh -c "grep -rl 'monver.com' /etc/nginx 2>/dev/null | head -1" || true)"
 
   if [ -n "$conf_file" ] && docker exec "$container" grep -q "kidelio-ws-locations" "$conf_file" 2>/dev/null; then
     echo "    Include already present in $conf_file"
   elif [ -n "$conf_file" ]; then
-    docker exec "$container" sh -c "grep -q 'kidelio-ws-locations' '$conf_file' || sed -i '/server_name.*kideliowear/i\\    include /etc/nginx/kidelio-ws-locations.conf;' '$conf_file'" || true
+    docker exec "$container" sh -c "grep -q 'kidelio-ws-locations' '$conf_file' || sed -i '/server_name.*monver/i\\    include /etc/nginx/kidelio-ws-locations.conf;' '$conf_file'" || true
     if docker exec "$container" grep -q "kidelio-ws-locations" "$conf_file" 2>/dev/null; then
       echo "    Added include to $conf_file"
     else
@@ -60,7 +60,7 @@ configure_docker_nginx() {
     fi
   else
     echo ""
-    echo "MANUAL — inside $container, add to kideliowear.com server {}:"
+    echo "MANUAL — inside $container, add to monver.com server {}:"
     echo "    include /etc/nginx/kidelio-ws-locations.conf;"
     echo "    (file copied to /etc/nginx/kidelio-ws-locations.conf)"
   fi
@@ -76,7 +76,7 @@ configure_docker_nginx() {
 }
 
 configure_host_nginx() {
-  local host_conf="/etc/nginx/sites-available/kideliowear"
+  local host_conf="/etc/nginx/sites-available/monver"
   if [ ! -f "$host_conf" ]; then
     return 1
   fi
@@ -84,7 +84,7 @@ configure_host_nginx() {
   echo "==> Configuring host nginx ($host_conf)..."
   if ! grep -q "chat/ws/" "$host_conf" 2>/dev/null; then
     echo "    Updating from repo template..."
-    sudo cp "$DEPLOY_DIR/nginx-kideliowear.conf" "$host_conf"
+    sudo cp "$DEPLOY_DIR/nginx-monver.conf" "$host_conf"
   fi
 
   if ! sudo nginx -t; then
@@ -148,7 +148,7 @@ else
   echo ""
   echo "  # Manual copy into any nginx container:"
   echo "  docker cp deploy/daizo-nginx-ws.conf CONTAINER:/etc/nginx/kidelio-ws-locations.conf"
-  echo "  # Then add inside kideliowear.com server {}:"
+  echo "  # Then add inside monver.com server {}:"
   echo "  include /etc/nginx/kidelio-ws-locations.conf;"
 fi
 

@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 
 const SITE_NAME = 'MONVÉR'
-const BASE_URL = 'https://kideliowear.com'
+const BASE_URL = 'https://monver.com'
 const DEFAULT_IMAGE = `${BASE_URL}/og-monver.svg`
 const DEFAULT_DESCRIPTION =
   'MONVÉR — Maroquinerie en cuir pour femme et homme. Portefeuilles, ceintures, sacs, trousses de toilette et accessoires en cuir au design intemporel. Livraison partout en Tunisie, paiement à la livraison.'

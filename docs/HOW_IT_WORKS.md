@@ -1,6 +1,6 @@
 # Kidelio (kids-shop) — How the website works
 
-This document describes the architecture of **kideliowear.com**: the React storefront, the Rails API, the Go real-time service, and how data flows between them.
+This document describes the architecture of **monver.com**: the React storefront, the Rails API, the Go real-time service, and how data flows between them.
 
 ---
 
@@ -63,12 +63,12 @@ See `deploy/DEPLOY.md` for the full VPS guide. Summary:
 
 1. **Rails** (`deploy-web-1`) — port **7675** → business logic, sessions, SQLite/Postgres DB
 2. **Go** (`deploy-go-service-1`) — port **3010** → chat DB (SQLite volume), event feeds
-3. **nginx** (`daizo-nginx`) — TLS, routes `kideliowear.com` to Rails and static files
+3. **nginx** (`daizo-nginx`) — TLS, routes `monver.com` to Rails and static files
 
 Deploy from the server:
 
 ```bash
-cd /home/user/kideliowear
+cd /home/user/monver
 git pull
 bash deploy/deploy.sh
 ```
@@ -287,4 +287,4 @@ bash deploy/deploy.sh
 bash deploy/backup-go-db.sh
 ```
 
-For nginx and multi-site setup on the shared VPS, see `deploy/DEPLOY.md` and `deploy/nginx-kideliowear.conf`.
+For nginx and multi-site setup on the shared VPS, see `deploy/DEPLOY.md` and `deploy/nginx-monver.conf`.

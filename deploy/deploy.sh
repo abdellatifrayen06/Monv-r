@@ -11,8 +11,8 @@
 #   3. .env.production   : ONCE ONLY: cp deploy/.env.production.example deploy/.env.production
 #                          then fill in RAILS_MASTER_KEY (from api/config/master.key).
 #                          Never re-copy the example — it wipes your secrets.
-#   4. SSL cert obtained : certbot --nginx -d kideliowear.com -d www.kideliowear.com
-#   5. Nginx configured  : see deploy/nginx-kideliowear.conf and deploy/DEPLOY.md
+#   4. SSL cert obtained : certbot --nginx -d monver.com -d www.monver.com
+#   5. Nginx configured  : see deploy/nginx-monver.conf and deploy/DEPLOY.md
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -20,7 +20,7 @@ REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 DEPLOY_DIR="$REPO_DIR/deploy"
 COMPOSE="docker compose -f $DEPLOY_DIR/docker-compose.prod.yml"
 
-echo "==> Deploying kideliowear from $REPO_DIR"
+echo "==> Deploying monver from $REPO_DIR"
 
 # ── 1. Pull latest code ───────────────────────────────────────────────────────
 echo "==> Pulling latest code..."
@@ -138,6 +138,6 @@ bash "$DEPLOY_DIR/setup-ws.sh" || echo "WARN: WebSocket nginx setup failed — r
 
 echo ""
 echo "Deploy complete."
-echo "  Site : https://kideliowear.com"
+echo "  Site : https://monver.com"
 echo "  Go   : /api/v1/chat/* + WebSocket (chat, cart, favorites)"
 echo "  Check: $COMPOSE ps"

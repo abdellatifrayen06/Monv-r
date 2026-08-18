@@ -1,7 +1,7 @@
 puts "Seeding MONVÉR..."
 
 # ── Staff accounts ────────────────────────────────────────────────────────────
-admin_email    = ENV.fetch("ADMIN_EMAIL",    "admin@kideliowear.com")
+admin_email    = ENV.fetch("ADMIN_EMAIL",    "admin@monver.com")
 admin_password = ENV.fetch("ADMIN_PASSWORD", SecureRandom.hex(16))
 
 admin = User.find_or_initialize_by(email: admin_email)

@@ -20,7 +20,7 @@ npm run dev
 | **Rails JSON API** | http://localhost:3001 |
 | Admin login | http://localhost:3000/connexion |
 
-**Staff:** `admin@kideliowear.com` / `password123`
+**Staff:** `admin@monver.com` / `password123`
 
 ## Split of work
 
