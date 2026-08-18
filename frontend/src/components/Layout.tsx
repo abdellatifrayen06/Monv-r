@@ -65,7 +65,7 @@ export function Layout() {
 
           {/* Right: account, cart, mobile menu */}
           <div className="ml-auto flex items-center gap-1 sm:gap-2 flex-shrink-0">
-            <div className="flex-shrink-0 max-w-[9rem] sm:max-w-[11rem]">
+            <div className="hidden md:block flex-shrink-0 max-w-[9rem] sm:max-w-[11rem]">
               <UserAccountMenu align="right" />
             </div>
 

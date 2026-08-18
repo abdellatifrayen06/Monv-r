@@ -102,7 +102,9 @@ Rails.application.configure do
   config.hosts = [
     "monver.com",
     "www.monver.com",
-    /.*\.monver\.com/
+    /.*\.monver\.com/,
+    "xn--monvr-esa.com",
+    "www.xn--monvr-esa.com"
   ]
   config.host_authorization = { exclude: ->(request) { request.path == "/up" || request.path == "/health" } }
 end

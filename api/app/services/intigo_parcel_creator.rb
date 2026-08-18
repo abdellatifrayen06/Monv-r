@@ -145,7 +145,7 @@ class IntigoParcelCreator
     end
 
     addresses = @client.pickup_addresses
-    raise Error, "Aucune adresse de pickup Intigo configurée" if addresses.empty?
+    return nil if addresses.empty?
 
     # "index" can be null in the Intigo API; pickup_index is optional in that
     # case (Intigo then uses the business default pickup address).
