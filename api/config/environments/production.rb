@@ -100,11 +100,8 @@ Rails.application.configure do
 
   # Restrict requests to the production domain only.
   config.hosts = [
-    "monver.com",
-    "www.monver.com",
-    /.*\.monver\.com/,
-    "xn--monvr-esa.com",
-    "www.xn--monvr-esa.com"
+    "monvercuir.com",
+    "www.monvercuir.com"
   ]
   config.host_authorization = { exclude: ->(request) { request.path == "/up" || request.path == "/health" } }
 end

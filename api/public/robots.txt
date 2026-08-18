@@ -8,4 +8,4 @@ Disallow: /commande/
 Disallow: /connexion
 Disallow: /inscription
 
-Sitemap: https://monver.com/sitemap.xml
+Sitemap: https://monvercuir.com/sitemap.xml
