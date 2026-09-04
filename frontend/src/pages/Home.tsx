@@ -5,7 +5,6 @@ import { api, apiV1Fresh, peekCacheV1, peekFreshCacheV1 } from '../api/client'
 import { SEO } from '../components/SEO'
 import { HeroCarousel, type HeroSlide } from '../components/home/HeroCarousel'
 import { FallbackHero } from '../components/home/FallbackHero'
-import { AgeShopRail } from '../components/home/AgeShopRail'
 import { CategoryPhotoGrid } from '../components/home/CategoryPhotoGrid'
 import type { ShopCategory } from '../lib/categories'
 import { ProductRow } from '../components/home/ProductRow'
@@ -18,7 +17,7 @@ const DEFAULT_ASSETS = {
   hero_fallback: '/hero-main.png',
   banner_collection: '/banner-collection.svg',
   banner_wallets: '/banner-wallets.svg',
-  banner_travel: '/banner-travel.svg',
+  banner_belts: '/placeholders/cat-belts.svg',
   banner_story: '/banner-story.svg',
 }
 
@@ -88,6 +87,12 @@ export function Home() {
   const img = (key: keyof typeof DEFAULT_ASSETS) =>
     assets[key] || DEFAULT_ASSETS[key]
 
+  // Resolve a banner tile's link by category slug (ids differ across databases).
+  const categoryHref = (slug: string) => {
+    const c = categories.find((x) => x.slug === slug)
+    return c ? `/produits?category=${c.id}` : '/produits'
+  }
+
   const slidesWithImage = sliders.filter((s) => Boolean(s.image_url))
 
   const jsonLd = [
@@ -128,10 +133,6 @@ export function Home() {
         ) : (
           <FallbackHero heroImage={img('hero_fallback')} />
         )}
-      </div>
-
-      <div className="age-rail-slot min-h-[148px] sm:min-h-[156px]">
-        {homeHeroReady ? <AgeShopRail /> : null}
       </div>
 
       <div className="border-y border-gray-100 bg-white">
@@ -181,7 +182,7 @@ export function Home() {
           </Link>
           <div className="flex flex-col gap-3 md:gap-4">
             <Link
-              to="/produits?category=6"
+              to={categoryHref('portefeuilles')}
               className="group relative overflow-hidden rounded-lg h-48 md:h-auto md:flex-1 block"
             >
               <img
@@ -196,18 +197,18 @@ export function Home() {
               </div>
             </Link>
             <Link
-              to="/produits?category=11"
+              to={categoryHref('ceintures')}
               className="group relative overflow-hidden rounded-lg h-48 md:h-auto md:flex-1 block"
             >
               <img
-                src={img('banner_travel')}
-                alt="Maroquinerie de voyage"
+                src={img('banner_belts')}
+                alt="Ceintures en cuir"
                 className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
-                <p className="text-white/70 text-[10px] font-semibold uppercase tracking-[0.2em] mb-0.5">En déplacement</p>
-                <h3 className="font-display font-normal text-lg md:text-2xl text-white leading-tight">Voyage</h3>
+                <p className="text-white/70 text-[10px] font-semibold uppercase tracking-[0.2em] mb-0.5">Intemporel</p>
+                <h3 className="font-display font-normal text-lg md:text-2xl text-white leading-tight">Ceintures</h3>
               </div>
             </Link>
           </div>

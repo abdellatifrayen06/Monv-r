@@ -85,7 +85,7 @@ module Api
             errors: product.errors.full_messages.presence || [ "Impossible de supprimer ce produit" ]
           }, status: :unprocessable_entity
         end
-      rescue ActiveRecord::DeleteRestrictionError
+      rescue ActiveRecord::DeleteRestrictionError, ActiveRecord::InvalidForeignKey
         render json: {
           errors: [ "Ce produit ne peut pas être supprimé car il est encore référencé ailleurs." ]
         }, status: :unprocessable_entity

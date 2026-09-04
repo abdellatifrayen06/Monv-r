@@ -24,7 +24,7 @@ const STATIC_FALLBACK: Record<string, string> = {
   hero_fallback: "/hero-main.png",
   banner_collection: "/banner-collection.svg",
   banner_wallets: "/banner-wallets.svg",
-  banner_travel: "/banner-travel.svg",
+  banner_belts: "/placeholders/cat-belts.svg",
   banner_story: "/banner-story.svg",
 };
 

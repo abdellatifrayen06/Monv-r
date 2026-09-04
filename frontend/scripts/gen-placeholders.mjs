@@ -74,6 +74,12 @@ const ICONS = {
     <circle cx="44" cy="46" r="14"/>
     <path d="M54 56 L74 76"/>
     <path d="M68 70 l6 -6"/>`,
+  coffret: `
+    <rect x="26" y="44" width="48" height="32" rx="3"/>
+    <rect x="22" y="34" width="56" height="12" rx="2"/>
+    <path d="M50 34 V76"/>
+    <path d="M50 34 L41 28 L41 34 Z"/>
+    <path d="M50 34 L59 28 L59 34 Z"/>`,
   monogram: `
     <path d="M34 66 V38 l16 20 16 -20 v28"/>`,
 }
@@ -128,6 +134,7 @@ const PRODUCTS = [
   ['weekender', 'travel', 'cream', 'WEEKEND'],
   ['accessory', 'accessory', 'stone', 'ACCESSOIRE'],
   ['keyring', 'keyring', 'sand', 'PORTE-CLÉS'],
+  ['coffret', 'coffret', 'sand', 'COFFRET'],
   ['generic', 'monogram', 'cream', ''],
 ]
 for (const [name, icon, ground, label] of PRODUCTS) {
@@ -143,6 +150,7 @@ const CATS = [
   ['cat-washbags', 'washbag', 'espresso', 'TROUSSES', true],
   ['cat-travel', 'travel', 'cognac', 'VOYAGE', false],
   ['cat-accessories', 'accessory', 'espresso', 'ACCESSOIRES', true],
+  ['cat-coffrets', 'coffret', 'espresso', 'COFFRETS', true],
 ]
 for (const [name, icon, ground, label, dark] of CATS) {
   writeFileSync(join(PH, `${name}.svg`), tile({ w: 800, h: 1000, ground, icon, label, dark }))

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="COFFRETS">
+  <defs>
+    <linearGradient id="gcof" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#2A2320"/>
+      <stop offset="1" stop-color="#191411"/>
+    </linearGradient>
+    <radialGradient id="vcof" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0.6" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.28"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#gcof)"/>
+  <rect width="800" height="1000" fill="url(#vcof)"/>
+  <g transform="translate(192 262) scale(4.16)" fill="none" stroke="#E7D8C4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+    <rect x="26" y="44" width="48" height="32" rx="3"/>
+    <rect x="22" y="34" width="56" height="12" rx="2"/>
+    <path d="M50 34 V76"/>
+    <path d="M50 34 L41 28 L41 34 Z"/>
+    <path d="M50 34 L59 28 L59 34 Z"/>
+  </g>
+  <text x="400" y="900" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="41.6" letter-spacing="17.47" fill="#E7D8C4" font-weight="500">MONVÉR</text>
+  <text x="400" y="979" text-anchor="middle" font-family="Georgia, serif" font-size="17.47" letter-spacing="14.14" fill="#E7D8C4" opacity="0.75">COFFRETS</text>
+</svg>

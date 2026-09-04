@@ -2,13 +2,13 @@ class HomePageAsset < ApplicationRecord
   include Auditable
   audit_as "HomePageAsset"
 
-  KEYS = %w[hero_fallback banner_collection banner_wallets banner_travel banner_story].freeze
+  KEYS = %w[hero_fallback banner_collection banner_wallets banner_belts banner_story].freeze
 
   LABELS = {
     "hero_fallback" => "Image hero (page d'accueil, sans carousel)",
     "banner_collection" => "Bannière « La collection » (grande tuile)",
     "banner_wallets" => "Bannière « Portefeuilles » (tuile)",
-    "banner_travel" => "Bannière « Voyage » (tuile)",
+    "banner_belts" => "Bannière « Ceintures » (tuile)",
     "banner_story" => "Image « Notre approche » (section éditoriale)"
   }.freeze
 

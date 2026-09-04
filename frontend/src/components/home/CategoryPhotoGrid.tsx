@@ -23,23 +23,21 @@ const FALLBACK_IMAGE: Record<string, string> = {
   trousses: '/placeholders/cat-washbags.svg',
   voyage: '/placeholders/cat-travel.svg',
   accessoires: '/placeholders/cat-accessories.svg',
+  coffrets: '/placeholders/cat-coffrets.svg',
 }
 
-function categoryImage(
-  cat: ShopCategory,
-  assets?: Record<string, string | null | undefined>
-): string | undefined {
+function categoryImage(cat: ShopCategory): string {
+  // Uploaded photo → known-category placeholder → neutral monogram.
+  // (Never fall back to a banner image, or unmapped categories borrow it.)
   return (
     cat.image_url ||
     FALLBACK_IMAGE[cat.slug.toLowerCase()] ||
-    assets?.banner_collection ||
-    '/placeholders/cat-bags.svg'
+    '/placeholders/generic.svg'
   )
 }
 
 export function CategoryPhotoGrid({
   categories,
-  assets,
 }: {
   categories: ShopCategory[]
   assets?: Record<string, string | null | undefined>
@@ -71,7 +69,7 @@ export function CategoryPhotoGrid({
             className="group relative overflow-hidden rounded-2xl aspect-[3/4] bg-gray-100 shadow-sm hover:shadow-lg transition-shadow"
           >
             <img
-              src={categoryImage(cat, assets)}
+              src={categoryImage(cat)}
               alt={cat.name}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"

@@ -6,7 +6,18 @@ class Product < ApplicationRecord
   has_many :order_items, dependent: :nullify
   has_many :reviews, class_name: "ProductReview", dependent: :destroy
   has_many :colors, -> { ordered }, class_name: "ProductColor", dependent: :destroy
-  has_many_attached :images
+  # Analytics/tracking rows keep a nullable product_id — detach them on delete so
+  # the DB foreign key doesn't block removing a product that's been viewed/carted.
+  has_many :client_activity_events, dependent: :nullify
+  has_many :cart_live_events, dependent: :nullify
+  # Pre-generate the storefront thumbnails in the background on upload so they're
+  # ready before a customer loads the listing (avoids "broken image" on first,
+  # cold requests). Options MUST match ApplicationController#json_variant_url.
+  has_many_attached :images do |attachable|
+    attachable.variant :thumb,  resize_to_limit: [ 300, 400 ],  format: :webp, saver: { quality: 82 }, preprocessed: true
+    attachable.variant :medium, resize_to_limit: [ 600, 800 ],  format: :webp, saver: { quality: 82 }, preprocessed: true
+    attachable.variant :large,  resize_to_limit: [ 900, 1200 ], format: :webp, saver: { quality: 82 }, preprocessed: true
+  end
   # Same deterministic photo ordering as ProductColor (see comment there).
   has_many :images_attachments,
     -> { where(name: "images").order(:id) },

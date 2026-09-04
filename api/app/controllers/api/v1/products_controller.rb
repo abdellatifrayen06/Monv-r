@@ -122,6 +122,7 @@ module Api
           elsif slug.include?("cabas") || slug.include?("main")  then "handbag"
           elsif slug.include?("cle")                             then "keyring"
           elsif slug.include?("ceinture") || cat == "ceintures"  then "belt"
+          elsif slug.include?("coffret") || cat == "coffrets"    then "coffret"
           elsif slug.include?("trousse") || cat == "trousses"    then "washbag"
           elsif cat == "portefeuilles"                           then "wallet"
           elsif cat == "porte-cartes"                            then "cardholder"
