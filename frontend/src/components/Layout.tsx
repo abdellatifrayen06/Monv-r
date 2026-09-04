@@ -155,7 +155,7 @@ export function Layout() {
             </p>
             <div className="flex gap-3 mt-5">
               <a
-                href="https://www.facebook.com/profile.php?id=61590348549914"
+                href="https://www.facebook.com/profile.php?id=61593318576195"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="MONVÉR sur Facebook"
@@ -164,7 +164,7 @@ export function Layout() {
                 <Facebook size={16} />
               </a>
               <a
-                href="https://www.instagram.com/monver/"
+                href="https://www.instagram.com/monvercuir/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="MONVÉR sur Instagram"
