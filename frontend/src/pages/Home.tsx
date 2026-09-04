@@ -137,7 +137,7 @@ export function Home() {
 
       <div className="border-y border-gray-100 bg-white">
         <div className="page-wrap py-3">
-          <div className="flex items-center gap-6 xs:gap-10 overflow-x-auto scrollbar-hide">
+          <div className="flex items-center justify-start md:justify-center gap-6 xs:gap-10 overflow-x-auto scrollbar-hide">
             {[
               { icon: Truck, text: 'Livraison partout en Tunisie' },
               { icon: Banknote, text: 'Paiement à la livraison' },
