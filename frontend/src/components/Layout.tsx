@@ -127,7 +127,7 @@ export function Layout() {
 
       {/* ── Footer ── */}
       <footer className="bg-ink text-[#C9BCA9] mt-16 pb-16 md:pb-0" role="contentinfo">
-        <div className="border-b border-white/10">
+        <div className="bg-warm border-b border-black/5">
           <div className="page-wrap py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { icon: <Truck size={22} />, title: 'Livraison en Tunisie', desc: 'Expédition rapide, suivi en ligne' },
@@ -136,10 +136,10 @@ export function Layout() {
               { icon: <Headphones size={22} />, title: 'Conseil attentionné', desc: 'Une équipe à votre écoute' },
             ].map((b) => (
               <div key={b.title} className="flex flex-col items-center text-center gap-2">
-                <div className="text-brand-400 flex-shrink-0">{b.icon}</div>
+                <div className="text-brand-600 flex-shrink-0">{b.icon}</div>
                 <div>
-                  <p className="text-white font-semibold text-sm">{b.title}</p>
-                  <p className="text-[#A7987F] text-xs">{b.desc}</p>
+                  <p className="text-ink font-semibold text-sm">{b.title}</p>
+                  <p className="text-ink/60 text-xs">{b.desc}</p>
                 </div>
               </div>
             ))}
