@@ -135,7 +135,7 @@ export function Layout() {
               { icon: <ShieldCheck size={22} />, title: 'Cuir & finitions soignées', desc: 'Pensé pour durer' },
               { icon: <Headphones size={22} />, title: 'Conseil attentionné', desc: 'Une équipe à votre écoute' },
             ].map((b) => (
-              <div key={b.title} className="flex items-center gap-3">
+              <div key={b.title} className="flex flex-col items-center text-center gap-2">
                 <div className="text-brand-400 flex-shrink-0">{b.icon}</div>
                 <div>
                   <p className="text-white font-semibold text-sm">{b.title}</p>
