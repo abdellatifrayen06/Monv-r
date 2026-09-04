@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="TROUSSES">
+  <defs>
+    <linearGradient id="g6e9fdb" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#2A2320"/>
+      <stop offset="1" stop-color="#191411"/>
+    </linearGradient>
+    <radialGradient id="v6e9fdb" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0.6" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.28"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#g6e9fdb)"/>
+  <rect width="800" height="1000" fill="url(#v6e9fdb)"/>
+  <g transform="translate(192 262) scale(4.16)"
+     fill="none" stroke="#E7D8C4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+    
+    <rect x="20" y="42" width="60" height="30" rx="10"/>
+    <path d="M20 52 H80"/>
+    <rect x="44" y="34" width="12" height="10" rx="3"/>
+  </g>
+  
+  <text x="400" y="900" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="41.6" letter-spacing="17.472" fill="#E7D8C4" font-weight="500">MONVÉR</text>
+  <text x="400" y="979.04" text-anchor="middle" font-family="Georgia, serif"
+        font-size="17.472" letter-spacing="14.144000000000002" fill="#E7D8C4" opacity="0.75">TROUSSES</text>
+</svg>

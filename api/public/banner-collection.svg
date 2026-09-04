@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="LA COLLECTION">
+  <defs>
+    <linearGradient id="gj7uwim" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#2A2320"/>
+      <stop offset="1" stop-color="#191411"/>
+    </linearGradient>
+    <radialGradient id="vj7uwim" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0.6" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.28"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#gj7uwim)"/>
+  <rect width="1200" height="800" fill="url(#vj7uwim)"/>
+  <g transform="translate(371.2 147.2) scale(4.5760000000000005)"
+     fill="none" stroke="#E7D8C4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+    
+    <path d="M24 46 h52 l-4 32 h-44 z"/>
+    <path d="M36 46 a14 12 0 0 1 28 0"/>
+    <path d="M24 58 H76"/>
+  </g>
+  
+  <text x="600" y="720" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="41.6" letter-spacing="17.472" fill="#E7D8C4" font-weight="500">MONVÉR</text>
+  <text x="600" y="799.04" text-anchor="middle" font-family="Georgia, serif"
+        font-size="17.472" letter-spacing="14.144000000000002" fill="#E7D8C4" opacity="0.75">LA COLLECTION</text>
+</svg>

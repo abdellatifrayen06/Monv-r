@@ -2,10 +2,10 @@
 # GET /facebook_cat_feed.xml
 #
 # Configure in: Business Manager → Catalogs → Data Sources → Scheduled Feed
-# URL: https://monver.com/facebook_cat_feed.xml
+# URL: https://monvercuir.com/facebook_cat_feed.xml
 class FacebookCatFeedController < ApplicationController
   BRAND = "MONVÉR"
-  BASE_URL = "https://monver.com"
+  BASE_URL = "https://monvercuir.com"
   G_NS = "http://base.google.com/ns/1.0"
 
   def index

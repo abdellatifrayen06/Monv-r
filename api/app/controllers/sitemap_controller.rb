@@ -1,5 +1,5 @@
 class SitemapController < ApplicationController
-  BASE_URL = "https://monver.com"
+  BASE_URL = ENV.fetch("SITE_URL", "https://monvercuir.com").chomp("/")
 
   STATIC_ROUTES = [
     { loc: "/",         changefreq: "daily",   priority: "1.0" },

@@ -1,6 +1,6 @@
 import type { ProductRating } from '../components/ProductStarRating'
 
-const BASE_URL = 'https://monver.com'
+const BASE_URL = 'https://monvercuir.com'
 
 export type ProductReviewPreview = {
   stars: number

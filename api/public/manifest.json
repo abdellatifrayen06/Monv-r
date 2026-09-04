@@ -1,0 +1,19 @@
+{
+  "short_name": "MONVÉR",
+  "name": "MONVÉR — Maroquinerie & accessoires en cuir",
+  "description": "Maroquinerie en cuir au design intemporel pour femme et homme.",
+  "icons": [
+    {
+      "src": "/monver-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1C1815",
+  "background_color": "#F7F3EC",
+  "lang": "fr",
+  "orientation": "portrait"
+}

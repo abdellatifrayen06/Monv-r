@@ -65,9 +65,9 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "monver.com", protocol: "https" }
+  config.action_mailer.default_url_options = { host: "monvercuir.com", protocol: "https" }
 
-  config.active_storage.default_url_options = { host: "monver.com", protocol: "https" }
+  config.active_storage.default_url_options = { host: "monvercuir.com", protocol: "https" }
   config.after_initialize do
     if ENV["SITE_URL"].present?
       uri = URI.parse(ENV["SITE_URL"])
