@@ -2,13 +2,15 @@
 module MetaCatalogIds
   module_function
 
+  # Color-level IDs only: `{product_id}` (no colors) or `{product_id}-c{color_id}`.
+  # The catalog feed has no per-size rows, so the size must NOT be part of the id —
+  # otherwise server-side (Conversions API) events reference content_ids that don't
+  # exist in the catalog and Meta can't match them (drops the catalog match rate).
+  # `size_label` is accepted for call-site compatibility but intentionally unused,
+  # mirroring the frontend's metaCatalogContentId.
   def content_id(product_id:, color_id: nil, size_label: nil)
     parts = [product_id.to_s]
-    if color_id.present?
-      parts << "c#{color_id}"
-      slug = size_label.to_s.parameterize.presence
-      parts << slug if slug
-    end
+    parts << "c#{color_id}" if color_id.present?
     parts.join("-")
   end
 
@@ -27,17 +29,9 @@ module MetaCatalogIds
     )
   end
 
-  # First catalog row for a product — matches the default color/size in the feed.
+  # First catalog row for a product — matches the default color in the feed.
   def default_content_id_for_product(product)
-    colors = product.colors.sort_by { |c| [c.position || 0, c.id] }
-    color = colors.first
-    return product.id.to_s unless color
-
-    size_rec = color.sizes.min_by { |s| [s.position || 0, s.size.to_s] }
-    content_id(
-      product_id: product.id,
-      color_id: color.id,
-      size_label: size_rec&.size
-    )
+    color = product.colors.min_by { |c| [c.position || 0, c.id] }
+    content_id(product_id: product.id, color_id: color&.id)
   end
 end
