@@ -126,9 +126,9 @@ export function Layout() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="bg-ink text-[#C9BCA9] mt-16 pb-16 md:pb-0" role="contentinfo">
+      <footer className="bg-ink text-[#C9BCA9] pb-16 md:pb-0" role="contentinfo">
         <div className="bg-warm border-b border-black/5">
-          <div className="page-wrap py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="page-wrap py-10 grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
             {[
               { icon: <Truck size={22} />, title: 'Livraison en Tunisie', desc: 'Expédition rapide, suivi en ligne' },
               { icon: <Banknote size={22} />, title: 'Paiement à la livraison', desc: 'En espèces, sans frais' },
