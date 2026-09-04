@@ -44,7 +44,7 @@ export function CategoryPhotoGrid({
 }) {
   if (categories.length === 0) return null
 
-  const shown = tilesFromTree(categories).slice(0, 6)
+  const shown = tilesFromTree(categories).slice(0, 5)
 
   return (
     <section className="page-wrap py-8 md:py-10">
@@ -61,7 +61,7 @@ export function CategoryPhotoGrid({
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
         {shown.map((cat) => (
           <Link
             key={cat.id}
